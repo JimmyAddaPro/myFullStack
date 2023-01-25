@@ -1,0 +1,72 @@
+#conteneur{
+	border: 2px solid black;
+	width: 1000px;
+	margin: 0 auto;
+}
+#conteneur header{
+	padding: 10px;
+	border: 2px solid red;
+	display: flex;
+	justify-content: space-between;
+}
+#conteneur header > div{
+	height: 100px;
+	border: 2px solid red;
+}
+#conteneur header > div:nth-child(1), 
+#conteneur header > div:nth-child(3),
+
+#conteneur section > div:nth-child(1),
+#conteneur section > div:nth-child(3),
+
+#conteneur footer > div:nth-child(1),
+#conteneur footer > div:nth-child(3)
+{
+	width: 20%;
+}
+#conteneur header > div:nth-child(2),
+
+#conteneur section > div:nth-child(2),
+
+#conteneur footer > div:nth-child(2){
+	width: 50%;
+}
+/* ----------------------------------- */
+#conteneur nav{
+	border: 2px solid orange;
+	height: 40px;
+}
+#conteneur section{
+	border: 2px solid blue;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+#conteneur section > div{
+	height: 400px;
+	border: 2px solid blue;
+}
+#conteneur footer{
+	border: 2px solid green;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+#conteneur footer > div{
+	height: 60px;
+	border: 2px solid green;
+}
+@media screen and (max-width: 1000px){
+	#conteneur{
+		width: 100%;
+		border: none;
+	}
+	#conteneur header, 
+	#conteneur section, 
+	#conteneur footer{
+		flex-direction: column;
+	}
+	#conteneur header > div,
+	#conteneur section > div,
+	#conteneur footer > div{width: 100%!important;}
+}

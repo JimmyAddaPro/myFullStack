@@ -1,0 +1,76 @@
+header{
+	height: 150px;
+	background-color: #036882;
+}
+aside{
+	height: 40px; 
+	background-color: #0DCAD8;
+}
+section{
+	height: 400px;
+	background-color: #05A6A6;
+	border: 1px solid white;
+}
+section h1{
+	font-family: arial;
+	font-size: 60px;
+	color: white;
+	text-align: center;
+}
+section p{
+	background-color: gray;
+	margin: 20px;
+	padding: 20px;
+	color: white;
+	font-size: 26px;
+	font-style: italic;
+}
+section p strong{
+	color: red;
+	font-size: 70px;
+	border: 1px solid red;
+	background-color: white;
+	font-weight: 900;
+}
+section p span{
+	color: white;
+	border: 1px solid lime;
+	background-color: aqua;
+}
+section p em{
+	font-style: italic;
+	color: blue;
+	border: 1px solid purple;
+	background-color: white;
+}
+section p a{
+	/* text-decoration: none; */
+	color: white;
+	background-color: blue;
+	padding: 3px;
+	transition: 1s;
+}
+section p a:hover{
+	color: blue;
+	background-color: white;
+	padding: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section p strong, section p span, section p em{} */
+/* 
+	,			: et
+	espace 		: à l'interieur de 
+		Site pour theme couleurs : Adobe colors https://color.adobe.com/fr/
+ */

@@ -1,0 +1,31 @@
+.rouge{background-color: red;}
+.vert{background-color: green;}
+.aqua{background-color: aqua;}
+.lime{background-color: lime;}
+.rose{background-color: pink;}
+.noir{background-color: black;}
+.violet{background-color: purple;}
+.orange{background-color: orange;}
+.bleu{background-color: blue;}
+.gris{background-color: gray;}
+.marron{background-color: brown;}
+.argent{background-color: silver;}
+
+
+/* Exercice Grid */
+.container-fluid{
+	border: 10px solid black;
+}
+/* header > div, nav > div, section > div, footer > div{
+	border: 3px solid yellow;
+} */
+header > div, footer > div{
+	height: 90px;
+}
+nav > div{
+	height: 40px;
+}
+section > div{
+	height: 400px;
+}
+

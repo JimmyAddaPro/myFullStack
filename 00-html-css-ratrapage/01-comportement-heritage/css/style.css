@@ -1,0 +1,15 @@
+body{
+    border: 2px solid red;
+}
+h1, h3, h6, div, section, a, em, span, article, header, nav, main, aside{
+    border: 2px solid black;
+    margin: 15px;
+    padding: 5px;
+}
+h1{
+    width: 150px;
+	background-color: red;
+}
+h3{
+    width: 350px;
+}

@@ -1,0 +1,66 @@
+/*
+p, span{
+	color: red;
+	border: 1px solid red;
+}
+p:nth-child(even){color: blue;}
+p:nth-child(odd){color: purple;}
+p:nth-child(5){color: orange;}
+p:first-child{color: aqua;}
+p:last-child{color: lime;}
+*/
+
+div{
+	border: 1px solid green;
+	background-color: gray;
+	color: white;
+	margin: 3px;
+}
+#zone-a{
+	background-color: pink;
+}
+#zone-b{
+	background-color: blue;
+}
+/*
+section, article{
+	border: 3px solid brown; 
+	margin: 3px;
+}
+*/
+.zone-importante{
+	background-color: red;
+	font-size: 50px;
+	color: white;
+}
+
+#zone-c p em{
+	color: lime;
+	font-style: italic;
+}
+#zone-c #p1 em{
+	color: red;
+}
+#zone-c #p1 em.em2{
+	color: aqua;
+}
+#zone-c #p2 em{
+	color: orange;
+}
+
+
+
+
+
+
+
+
+
+/* 
+	even : pair
+	odd  : impair
+	
+	
+	# 	 : ID 		=> 1 fois dans la page
+	. 	 : CLASS	=> X fois dans la page
+ */

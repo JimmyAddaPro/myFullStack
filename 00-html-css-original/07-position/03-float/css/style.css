@@ -1,0 +1,42 @@
+.d1,.d2,.d3,.d4,.d5,.d6,.d7,.d8,.d9,.d10{
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 100px; 
+	margin: 3px;
+	float: left;
+}
+.ghost{
+	clear: both;
+}
+#conteneur{
+	border: 10px solid red;
+	width: 800px;
+}
+aside, section{
+	height: 500px;
+	width: 400px;
+	float: left;
+}
+aside{background-color: orange;}
+section{background-color: lime;}
+footer{
+	width: 800px;
+	height: 200px;
+	background-color: purple;
+	border: 10px solid green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

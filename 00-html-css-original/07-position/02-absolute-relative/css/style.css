@@ -1,0 +1,61 @@
+#gp{
+	height: 800px;
+	width: 800px;
+	background-color: aqua; 
+	margin-left: 100px;
+	margin-top: 200px;
+}
+#parent{
+	height: 600px;
+	width: 600px;
+	background-color: pink;
+	position: relative;
+}
+#enfant{
+	height: 300px;
+	width: 300px;
+	background-color: orange;
+	text-align: center;
+	line-height: 300px;
+	color: white;
+	font-size: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

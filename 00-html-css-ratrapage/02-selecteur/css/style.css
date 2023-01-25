@@ -1,0 +1,48 @@
+#flex-exercice{
+    border: 10px solid purple;
+    height: 800px;
+    display: flex;
+    flex-direction: column; /* row : X, column : Y*/
+    justify-content: center; /* center, space-between, space-around - suis la direction */
+    align-items: center; /* travail sur l'axe inverse de la direction / justify-content*/
+}
+#flex-exercice section, #conteneur aside{
+    height: 200px;
+    width: 30%;
+}
+#flex-exercice section{
+    background-color: red;
+}
+#flex-exercice aside{
+    background-color: lime;
+}
+
+
+
+
+
+
+
+
+
+header{
+    background-color: rgb(64, 64, 163);
+    height: 100px;
+    color: white;
+    /* Propriétés temp : */
+    line-height: 100px;
+    text-align: center;
+}
+nav{
+    height: 50px;
+    background-color: rgb(60, 43, 60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+nav a{
+    color:white;
+    font-size: 18px;
+    margin: 0 20px;
+}

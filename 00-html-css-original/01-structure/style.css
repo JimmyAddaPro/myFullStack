@@ -1,0 +1,28 @@
+body{
+	background-color: #347D8A;
+} 
+header{
+	
+	/* border-width: 10px; */
+	/* border-style: double; */
+	/* border-color: orange; */
+	border: 10px double orange;
+	
+	color: white;
+	height: 100px;
+	width: 900px;
+	margin: 0 auto;
+}
+h1{
+	border: 1px solid red;
+}
+em{
+	border: 1px solid red;
+}
+span{
+	border: 1px solid red;
+}
+
+
+
+
