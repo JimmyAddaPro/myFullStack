@@ -1,4 +1,6 @@
 //Objectif : Amélioration de la fonction pour qu'elle puisse apparaître dans un élement HTML au choix. Création de la fonction updateH1() 
+var pars = parseInt(2,3);
+alert(pars);
 function splitVowelsCons(text){
  
     var arr = text.toLowerCase().replaceAll(" ", "").split("").sort();
