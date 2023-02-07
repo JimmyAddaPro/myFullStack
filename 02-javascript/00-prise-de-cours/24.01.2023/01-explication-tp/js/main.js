@@ -1,14 +1,123 @@
+var appDiv = document.getElementById("main") ;
+//E.1 - DEBUT
+const Users =[
+{
+    fName: "Bruce Wayne",
+    hName: "Batman",
+    email: "brucewayne@batmail.com",   
+    pass: "whatIDoThatDefinesMe.",   
+    }, 
+    {
+        fName: "Clark Kent",
+        hName: "Superman",
+        email: "clarkkent@supermail.com",   
+        pass: "dreamsSaveUs.",   
+    }, 
+    {
+        fName: "Peter Parker",
+        hName: "Spiderman",
+        email: "peterparker@spidermail.com",   
+        pass: "greatPower.",   
+    }
+]; 
+//E.1 - FIN
+init();
+function init(){
+    // Elements
+    var loginSection = document.createElement("section");
+    // Email
+    var emailDiv = document.createElement("div");       
+    var emailLabel = document.createElement("label");
+    // Mdp
+    var passDiv = document.createElement("div");           
+    var passLabel = document.createElement("label");     
+    // Btn
+    var btnDiv = document.createElement("div");           
+    var btn = document.createElement("button");
+    // Imbrication
+    // Email
+    emailLabel.innerText = "Enter your email";              
+    var emailInput = document.createElement("input");       
+    emailLabel.append(emailInput);
+    emailDiv.append(emailLabel);
+    // Mdp
+    passLabel.innerText = "Enter your Password";            
+    var passInput = document.createElement("input");        
+    passLabel.append(passInput);                            
+    passDiv.append(passLabel);                              
+    // Btn
+    btn.innerText = "Login Please";
+    btnDiv.append(btn);
+
+    loginSection.append(emailDiv);            
+    loginSection.append(passDiv);  
+    loginSection.append(btnDiv);  
+    appDiv.append(loginSection);  
+    passDiv.style.display = "none";
+    btnDiv.style.display = "none";
+
+    emailInput.addEventListener("input", checkEmail);
+    passInput.addEventListener("input", checkPass);
+    btn.addEventListener("click", login);
+    function login(){
+        // E.2 - DEBUT
+        for(let i = 0; i < Users.length; i++){
+            const user = Users[i];
+            if(emailInput.value.toLowerCase().replaceAll(" ", "") === user.email && passInput.value === user.pass){
+                goToDashBoard(loginSection, user.fName, user.hName)
+                return;
+            }    
+        }
+        alert("Wrong credentials");
+    }
+        // E.2 - FIN
+    function checkEmail(){
+        if(emailInput.value.includes("@") && emailInput.value.includes(".com")) {
+                passDiv.style.display = "block"; 
+        }
+        else{
+            passDiv.style.display = "none"; 
+        }
+    }
+    function checkPass(){
+        if(passInput.value.includes(".") && passInput.value.length > 7) {
+                btnDiv.style.display = "block";
+        }
+        else{
+            btnDiv.style.display = "none"; 
+        }
+    }
+} 
+//E.3 - DEBUT
+function goToDashBoard(ls, fName, hName){
+    alert("Clark Kent is Superman !");
+    var section = document.createElement("section");
+    var h1 = document.createElement("h1");
+    // h1.innerText = `Welcome, dear ${fName}`;
+    h1.innerText = `Welcome, dear ${hName}`;
+    section.append(h1);
+    ls.remove();
+    appDiv.append(section);
+} 
+//E.3 - FIN
 /*
     Objectif  :  
        énoncé    : 
-        1.....   
-        2.....   
+        1.Reprendre le code de l'exercice : Formulaire 22.01.2023/03-formulaire-amélioration-02.
+        2.Ajouter plusieurs Users et faire en sorte que cela fonctionne.   
         ----------------------------------------------------------------------------------------
         Evolution : 
-        1. grande étape 
-            - petite étape.
-            - petite étape.
-        2.etc.   
+        1. Modification de l'Object user en Array Users.
+        2. Modification de la fonction login(). 
+            - Nous ajoutons une boucle for pour qu'elle parcourt l'Array Users. 
+            - Nous ajoutons un return après l'execution de goToDashedBoard(). 
+            - Nous enlevons le else et on place l'alert("Wrong credentials") en dehors de la boucle for.
+        --
+            - Nous passons la fonction goToDashedBoard() en dehors de init().
+            - Nous plaçons deux args/paramètres que l'on nomme ls et fName.
+            - Dans goToDashedBoard() au moment de l'execution nous renseignons l'arg 1 : loginSection et l'arg 2 :  user.fName.
+            -On ajoute ls.remove() à la place de loginSection.remove()
+            -Faire amelioration hero sous forme d'éxercice si nécéssaire.
         FIN
         --
 */

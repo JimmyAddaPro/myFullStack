@@ -1,3 +1,7 @@
 22.01.2023 
-	. Découverte opérateurs ternaires
-	. Correction TP vowels - voyelles
+	. 01-ternaire-découverte 			: ----- Découverte opérateurs ternaires
+	. 02-vowels-voyelles-00 			: ----- Correction TP vowels - voyelles
+	. 03-formulaire-00 					: ----- Formulaire de connexion(email, mdp, btn), contrôle et affichage.
+24.01.2023 
+	. 01-explication-tp					: ----- TP Reprise du code de l'exercice : Formulaire 22.01.2023/03-formulaire-amélioration-02, avec ajout de plusieurs Users.
+	. 02-formulaire-produits 			: ----- Formulaire d'ajout de produit part 1 & 2 
