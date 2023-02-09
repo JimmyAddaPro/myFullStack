@@ -1,35 +1,71 @@
-const category = ["chose", "Sport", "Casual", "Evening", "Relax"];
-// const Category = [
-//     {value: "", text: "--Choose a category--"},
-//     {value: "Sport", text: "Sport"},
-//     {value: "Casual", text: "Casual"},
-//     {value: "Evening", text: "Evening"},
-//     {value: "Relax", text: "Relax"}
-// ];
+const Categories = [
+  {value: " ", text: "--Choose a category--"},
+  {value: "Sport",    text: "Sport"},
+  {value: "Casual",   text: "Casual"},
+  {value: "Evening",  text: "Evening"},
+  {value: "Relax",    text: "Relax"}
+]; 
+const Products = [];
 createForm();
 function createForm(){
   var model = myInput("model-input", "Enter the model name", "text");
   var brand = myInput("brand-input", "Enter the brand brand", "text");
   var price = myInput("price-input", "Enter the price", "number");
-  var sale = myInput("sale-input", "", "checkbox", "form-check-input");
-  var categorie = mySelect("category-select", "", category);
+  var categories = mySelect("category-select", "", Categories);
+  var sale = myInput("sale-input", "", "checkbox", "form-check-input");//Class bootstrap
   var btn = myButton("submit", "", "Add a product",  addProduct);
   var formDiv = document.getElementById("form-div");
-  formDiv.append(model, brand, price, sale, categorie, btn); 
+  formDiv.append(model.div, brand.div, price.div, categories.div, sale.div, btn);
   function addProduct(){
-    console.log("added a product. Et ça c'est cool dans la vie.")
+      var obj = {};
+      obj.model = model.input.value;
+      obj.brand = brand.input.value;
+      obj.price = price.input.value;
+      obj.category = categories.select.value; 
+      if(obj.model && obj.brand && obj.price && obj.category)
+      {
+        Products.push(obj); 
+        model.input.value = ""; 
+        brand.input.value = ""; 
+        price.input.value = "";
+        categories.select.value = "";
+      }else{
+        redBorder(obj);
+      }
+     function redBorder(x){
+      //Error handling
+     }
   }
 }
 function myInput(_id, _placeholder, _type, _class = ""){ 
-  var div = document.createElement("div");
-  var input = document.createElement("input");
-  input.className = "form-control" + _class;
-  input.id = _id;
-  input.placeholder = _placeholder;
-  input.type = _type;
-  div.append(input);  
-  return div;
-} 
+	var obj = {}
+	obj.div = document.createElement("div");
+	obj.input = document.createElement("input");
+	obj.input.className = "form-control" + _class;
+	obj.input.id = _id;
+	obj.input.placeholder = _placeholder;
+	obj.input.type = _type;
+	// --
+	obj.div.append(obj.input); 
+	console.log(obj);
+	return obj;   
+}
+function mySelect(_id, _class = "", _arr){
+	var obj = {};
+	obj.div = document.createElement("div");
+	obj.select = document.createElement("select");
+	obj.select.className = "form-select" + _class;
+	obj.select.id = _id;
+	for(let i = 0; i < _arr.length; i++){
+		const opt = _arr[i];
+		var option = document.createElement("option");
+		option.value = opt.value;
+		option.innerText = opt.text;
+		obj.select.append(option);
+	}
+	obj.div.append(obj.select);
+	return obj;
+}
 function myButton(_id, _class = "", _text,  _callback){ 
   var div = document.createElement("div");
   var btn = document.createElement("button");
@@ -39,25 +75,4 @@ function myButton(_id, _class = "", _text,  _callback){
   btn.addEventListener("click", _callback);
   div.append(btn);  
   return div;
-} 
-function mySelect(_id, _class = "", _option_array){
-    
-    var div = document.createElement("div");
-    var select = document.createElement("select");
-    select.id = _id;
-    select.className = _class;
-    var options = "";
-    for(let i = 0; i < _option_array.length; i++){
-        console.log(_option_array[i]+ "\n");
-        if(_option_array[i]==="chose"){
-            options = '<option value="none">Select a category</option>'; 
-        }else{
-            options += '<option value=' + _option_array[i] + '>' + _option_array[i] + '</option>';
-        }
-    }
-    select.innerHTML = options;
-    select.append(options);
-    
-    div.append(select);
-    return div;
 }

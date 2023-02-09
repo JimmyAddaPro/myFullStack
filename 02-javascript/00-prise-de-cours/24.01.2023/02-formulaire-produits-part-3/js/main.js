@@ -10,21 +10,25 @@ const Categories = [
 // E-4.1 - DEBUT
 const Products = [];
 // E-4.1 - FIN
+// E-5.9.1 - DEBUT
+const MainDiv = document.getElementById("main");
+const MainDivRow = document.getElementById("row-main");
+// E-5.9.1 - FIN
 // E-1.5 - DEBUT
 createForm();
 // E-1.5 - FIN
 // E-1.4 - DEBUT
 function createForm(){
   var model = myInput("model-input", "Enter the model name", "text");
-  var brand = myInput("brand-input", "Enter the brand brand", "text");
+  var brand = myInput("brand-input", "Enter the brand", "text");
   var price = myInput("price-input", "Enter the price", "number");
 // E-3.3 - DEBUT
   var categories = mySelect("category-select", "", Categories);
 // E-3.3 - FIN
   var sale = myInput("sale-input", "", "checkbox", "form-check-input");//Class bootstrap
-  // E-1.8 - DEBUT
-  var btn = myButton("submit", "", "Add a product",  addProduct);
-  // E-1.8 - FIN
+  // E-1.9 - DEBUT
+  var btn = myButton("submit", "btn-success", " Add a product",  addProduct, "fa-plus"); // // E-5.8 - DEBUT & FIN : ajout de btn-success et d'un icon
+  // E-1.9 - FIN
   var formDiv = document.getElementById("form-div");
   /* à écrire à l'E-1.4 :
   formDiv.append(model.div, brand.div, price.div, sale.div);
@@ -62,10 +66,14 @@ function createForm(){
       if(obj.model && obj.brand && obj.price && obj.category) //Si les champs sont remplient.
       {
         Products.push(obj); // Pour ajouter l'Object produit à l'Array Products
+        // E-5.9.3 - DEBUT
+        createCard(obj);
+        // E-5.9.3 - FIN
         model.input.value = ""; //Permet de vider le champ après l'ajout
         brand.input.value = ""; //Permet de vider le champ après l'ajout
         price.input.value = ""; //Permet de vider le champ après l'ajout
         categories.select.value = ""; //Permet de vider le champ après l'ajout
+        
       }else{
         // alert("All fields are required"); // A écrire à E-4.5
         // E-4.6 - DEBUT
@@ -80,8 +88,50 @@ function createForm(){
      // E-4.7 - FIN
   }
   // E-2.1 - FIN
-
 }
+// E-5.1 - DEBUT - Vide au  début. Coder à partir de E-5.3
+function createCard(obj){
+  // E-5.3 - DEBUT
+  var article = document.createElement("article"); 
+  article.className = "card col-md-2";
+  
+  var div = document.createElement("div");
+  div.className = "card-body";
+
+  var h5 = document.createElement("h5");
+  h5.className = "card-title model-name";
+  h5.innerText = obj.model;
+
+  var pBrand = document.createElement("p");
+  pBrand.className = "card-text brand-name";
+  pBrand.innerText = obj.brand;
+  
+
+  var pPrice = document.createElement("p");
+  pPrice.className = "card-text price-name";
+  pPrice.innerText = obj.price;
+  
+
+  var pCategory = document.createElement("p");
+  pCategory.className = "card-text category-name";
+  pCategory.innerText = obj.category;
+  // E-5.3 - FIN
+
+  // E-5.4 - DEBUT
+  var btn = myButton("", "btn-primary", " " + obj.price, buyNow, "fa-basket-shopping"); // On souhaite ajouter le prix en texte du btn qu'on concataine avec un espace. Le callback est buyNow. à E-5.6, on ajoute la class CSS  fa-basket-shopping(ou une autre au choix).
+  // E-5.4 - FIN
+  // E-5.9.2 - DEBUT - Les appends tous ensemble dans cette fonction.
+  div.append(h5, pBrand, pPrice, pCategory, btn);
+  article.append(div);
+  MainDivRow.append(article);
+  // E-5.9.2 - FIN 
+}
+// E-5.1 - FIN
+// E-5.4.1 - DEBUT
+function buyNow(){
+console.log(this);
+}
+// E-5.4.1 - FIN
 function myInput(_id, _placeholder, _type, _class = ""){ // L'id, le placeholder et le type sont ajouté par des paramètres/arguments. On ajoute après le paramètre _class un ="" afin qu'il est une valeur par défaut afin de ne pas avoir d'indefined si nous ne le renseignons pas.
     //Version avec object - à écrire à l'E-1.4, commenté à E-1.6, décommenté à E-4.2: 
           var obj = {}
@@ -93,7 +143,7 @@ function myInput(_id, _placeholder, _type, _class = ""){ // L'id, le placeholder
           obj.input.type = _type;
           // --
           obj.div.append(obj.input); 
-          console.log(obj);
+          // console.log(obj);
           return obj;   
   // E-1.6 - DEBUT : version avec variables
   /*
@@ -149,22 +199,36 @@ function mySelect(_id, _class = "", _arr){
   return obj;
 }
 // E-4.3 - FIN
-
-
-
-
-// E-1.8 - DEBUT
-function myButton(_id, _class = "", _text,  _callback){ 
+// E-1.8 - DEBUT 
+function myButton(_id, _class = "", _text,  _callback, _icon){  // E-5.5 arg _icon
   var div = document.createElement("div");
   var btn = document.createElement("button");
-  btn.className = "btn btn-success" + _class;
-  btn.innerText = _text;
+// E-5.7 - DEBUT 
+  if(_icon){
+    var i = document.createElement("i");
+    i.className = "fa-solid " + _icon;
+    btn.append(i);
+  }
+// E-5.7 - FIN
+// E-5.8 - DEBUT 
+var span = document.createElement("span");
+  // btn.innerText = _text; // E-1.8
+  span.innerText = _text;
+  
+  // btn.className = "btn btn-success" + _class; // E-1.8
+  btn.className = "btn " + _class;
+
   btn.id = _id;
+  btn.append(span);
+  
+// E-5.8 - FIN 
+
   btn.addEventListener("click", _callback); // Au clique de btn, execution du callback(une fonction passée en pramètre/argument).
   div.append(btn);  
   return div;
 } 
 // E-1.8 - FIN
+
 /*
     Objectif  :  
        énoncé    : 
@@ -212,7 +276,7 @@ function myButton(_id, _class = "", _text,  _callback){
                 façon 1 -> function addProduct() { var obj = {}; obj.model = model.querySelector("input").value }
               plutôt que : 
                 façon 2 -> function addProduct() { var obj = {}; obj.model = model.value }
-              On preferera la deuxieme façon. Nous devons donc dans myInput() retrouner un object et revenir à l'E-1.4 pour décommenter. Et donc commenter E-1.6.
+              On preferera la deuxieme façon. Nous devons donc dans myInput() retourner un object et revenir à l'E-1.4 pour décommenter. Et donc commenter E-1.6.
             4.3 Pareil avec mySelect(). Il faut qu'elle aussi retourne un object.
             4.4- modifications des arguments dans formDiv.appen().   
                 /!\         ->   version 3.4 : formDiv.append(model, brand, price, sale, btn);  
@@ -220,12 +284,43 @@ function myButton(_id, _class = "", _text,  _callback){
             4.5- Ecriture du "vrai" code de la fonction addProduct(). 
                 /!\         ->   Pour voir si cela fonctionne, écrire Products dans la console afin de voir si l'Array a bien ajouté l'Object.
             4.6- Toujours dans addProduct(), ajouter else {redBorder(obj);} 
-            4.7- Création de la fonction redBorder(x){//Error handling }. Cette fonction a pour objectif d'ajouter une bordure rouge au champ qui n'est pas renseigné par l'utilisateur. Pour l'instant, nous la laissons vide.
+            4.7- Création de la fonction redBorder(x){//Error handling }. Cette fonction a pour objectif d'ajouter une bordure rouge au champ qui n'est pas renseigné par l'utilisateur. Pour l'instant, nous la laissons vide.5.6
             -----------------------------------
-            Suite dans la troisième partie.
+        5. Création du formulaire - Quand on clique sur le btn (partie 3 : Affichage produits).
+        -----------------------
+            5.1- Création de la fonction createCard(obj){}
+            5.2- Modification de la structure de div#main et ajout d'une card/product en dure(HTML) en utilisant les class de bootstrap puis commenter la partie qui sera dynamique(<article></article>).
+            5.3- Ajout dans createCard() des éléments HTML
+            5.4- Ajout dans createCard() du btn. Nous réutulisons la fonction myButton().
+            5.4.1 Création de la fonction buyNow() qui est le callback du nouveau myButton().
+            5.5- Amélioration de myButton() avec un nouvel arg qui permet de renseigner un icon au btn.
+            5.6- ajout du cdn font-awesome.()
+              -> Récupération d'un icon sur font awesome. Ex : <i class="fa-solid fa-basket-shopping"></i>
+              /!\         ->   En réalité nous n'avons besoin que de prendre connaissance du nom de class CSS ainsi que du nom de l'élémént. Aussi, nous remarquons que l'élément i qui fera apparaître l'icon de notre choix contiendra deux class CSS. La premiere CLASS est toujours la même : fa-solid, nous la renseignons en dure dans le code. la deuxième class dépend de l'icon choisie, il faut donc un arg supplémentaire à notre fonction myButton().
+            5.7 Création de l'élément i avec les class CSS : 
+              -> Class CSS 1 "fa-solid" en dure
+              -> Class CSS Dynamique.   
+            5.8 Quelques petites modification dans la fonction myButton().
+            -> Ajout d'un élément span à qui on append le texte.
+            -> Par conséquent le span est append a btn. 
+            -> On enleve la class CSS en dure "btn-success". On la passe en argument au moment de l'éxecution de myButton() dans createForm()
+            -> au même endroit(ds l'execution de myButton() dans createForm()), ajout d'un icon en argument. 
+            5.9.1 Création des constantes MainDiv et MainDivRow qui contiendront le getElementBy... pour integrer le contenu de creatCard 
+            5.9.2 On revient dans createCard() et on append tous les éléments dans l'article et ensuite l'article au div.row lui même déjà présent dans le main.
+            5.9.3 Execution de createCard() dans addProduct()
+            5.9.4 Ajout de CSS pour l'affichage des produits
+            ----
+            Le résulat HTML attendu :
+            ------------------------- 
+            <div>
+              <button id="mon-id" class="btn btn-success ma-class">
+                <i class="fa-solid basket"></i><span>Envoyer</span>
+              </button>
+            </div>
+            ----
    
         --
-*/
+*/    
 /*
     Methodes/Fonctions  :
     

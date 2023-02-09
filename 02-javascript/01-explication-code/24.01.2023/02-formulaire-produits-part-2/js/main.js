@@ -67,9 +67,17 @@ function createForm(){
         price.input.value = ""; //Permet de vider le champ après l'ajout
         categories.select.value = ""; //Permet de vider le champ après l'ajout
       }else{
-        alert("All fields are required");
+        // alert("All fields are required"); // A écrire à E-4.5
+        // E-4.6 - DEBUT
+        redBorder(obj);
+        // E-4.6 - FIN
       }
      // E-4.5 - FIN
+     // E-4.7 - DEBUT
+     function redBorder(x){
+      //Error handling
+     }
+     // E-4.7 - FIN
   }
   // E-2.1 - FIN
 
@@ -211,6 +219,8 @@ function myButton(_id, _class = "", _text,  _callback){
                 /!\         ->   version 4.4 : formDiv.append(model.div, brand.div, price.div, categories.div, sale.div, btn); // Le btn restera comme ça et n'a pas vocation à évoluer, nous pouvons le laisser sous forme de variable HTMLDivElement.
             4.5- Ecriture du "vrai" code de la fonction addProduct(). 
                 /!\         ->   Pour voir si cela fonctionne, écrire Products dans la console afin de voir si l'Array a bien ajouté l'Object.
+            4.6- Toujours dans addProduct(), ajouter else {redBorder(obj);} 
+            4.7- Création de la fonction redBorder(x){//Error handling }. Cette fonction a pour objectif d'ajouter une bordure rouge au champ qui n'est pas renseigné par l'utilisateur. Pour l'instant, nous la laissons vide.
             -----------------------------------
             Suite dans la troisième partie.
    
