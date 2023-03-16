@@ -417,6 +417,7 @@ var span = document.createElement("span");
                     if(obj.model && obj.brand && obj.price && obj.category)
               par :
                     if(validateForm(obj))
+                    Explication : Si validateForm(obj) retourne true - Si nous sommes entré que dans les elses.
                     Reprendre à 01:35:00
         --
 */    

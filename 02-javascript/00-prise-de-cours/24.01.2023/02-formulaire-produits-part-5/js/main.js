@@ -133,7 +133,7 @@ function createForm(){
         brand.input.classList.remove("red-border");
       }
       if(!x.price){
-        price.input.classList.add("red-border"); //Un peu comme className, sans l'affectation, mais avec la methode add(), permet d'ajouter une class CSS. 
+        price.input.classList.add("red-border"); //Un peu comme className, sans l'affectation, mais avec la methode add(), permet d'ajouter une class CSS. On peut ajouter plusieurs class CSS en séparant avec des virgules : classList.add("red-border", "...") 
         valid = false; // E-6.6.4
       } else{
         price.input.classList.remove("red-border");
@@ -417,7 +417,8 @@ var span = document.createElement("span");
                     if(obj.model && obj.brand && obj.price && obj.category)
               par :
                     if(validateForm(obj))
-              FIN PART 4
+              - FIN DE PART 4 - 
+              Nous continuons sur un autre exercice pour comprendre quelque chose et nous revenons faire l'ajout au panier. On sarrette ) 2.10.30 et nous reprenons à 
         --
 */    
 /*
@@ -461,7 +462,13 @@ var span = document.createElement("span");
     ->  retourne ->  -------------- ?
     ->  exemple  ->  -------------- emailLabel.prepend(emailInput); 
     --    
-    Element.classList ------------------- propriété en lecture seule qui renvoie une DOMTokenList collection dynamique des class attributs de l'élément. Cela peut ensuite être utilisé pour manipuler la liste des classes. L'utilisation classList est une alternative pratique à l'accès à la liste des classes d'un élément sous la forme d'une chaîne délimitée par des espaces via element.className.
+    Element.classList ------------------- propriété en lecture seule qui renvoie une DOMTokenList(sorte de Array) collection dynamique des class attributs de l'élément. Cela peut ensuite être utilisé pour manipuler la liste des classes. L'utilisation classList est une alternative pratique à l'accès à la liste des classes d'un élément sous la forme d'une chaîne délimitée par des espaces via element.className.
+    ->  /Différence\      ->  className : "valeur-1 valeur-2 valeur-3"
+    ->  /Différence\      ->  classList : ["valeur-1", "valeur-2", "valeur-3"]
+    ->  /Exemple\      ->  écrire dans la console MainDiv.className et ensuite MainDiv.classList.
+    ->  /Exemple\      ->  Pour ajouter une valeur écrire : MainDiv.classList.add("valeur-4"). Cela ajoute une class CSS. Cela resemble au push pour l'Array.   
+
+
     ->  /?\      ->  -------------- Lecture seule ?
     ->  /R\      ->  -------------- Pas encore de réponse
     ->  /?\      ->  -------------- DOMTokenList ?
