@@ -5,3 +5,9 @@
 24.01.2023 
 	. 01-explication-tp					: ----- TP Reprise du code de l'exercice : Formulaire 22.01.2023/03-formulaire-amélioration-02, avec ajout de plusieurs Users.
 	. 02-formulaire-produits 			: ----- Formulaire d'ajout de produit part 1 & 2 & 3
+29.01.2023 
+	. 03-affichage-array-html-table-decouverte
+	. 04-affichage-array-construction-de-foreach
+	. 05-affichage-array-map-decouverte
+	. 06-affichage-array-map
+	. 07-this-decouverte
