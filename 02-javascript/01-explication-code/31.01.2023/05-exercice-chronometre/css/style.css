@@ -1,0 +1,38 @@
+/* 5 : Mise en forme CSS */
+#zoneA, #zoneB{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#zoneA{
+    height: 20vh;
+    background-color: aquamarine;
+ 
+}
+#zoneA > span{
+    font-size: 6vh;
+    color: rgb(1, 78, 52);
+}
+#zoneB{
+    height: 80vh;
+    background-color: rgb(35, 49, 171);
+}
+#zoneB > button{
+    padding: 2em 3em;
+    margin: 1em;
+    font-size: 2vw;
+    border: 5px solid white;
+    color: white;
+    transition: 0.2s;
+}
+#zoneB > button.start{background-color: rgb(33, 171, 54);}
+#zoneB > button.stop{background-color: red;}
+#zoneB > button.reset{background-color: rgb(33, 75, 171);}
+#zoneB > button:hover{
+    background-color: rgb(35, 49, 171);
+    border-color: aquamarine;
+}
+#zoneB > button:active {background-color: rgb(166, 0, 255);}
+
+
+

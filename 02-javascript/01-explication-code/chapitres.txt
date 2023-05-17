@@ -11,3 +11,10 @@
 	. 05-affichage-array-map-decouverte
 	. 06-affichage-array-map
 	. 07-this-decouverte
+
+31.01.2023 
+	. 01-this-decouverte-02
+	. 02-hoisting-decouverte
+	. 03-fonction-anonyme-&-callback-&-callback-avec-parametres
+	. 04-synchrone-et-asynchrone
+	. 05-exercice-chronometre

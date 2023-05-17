@@ -43,13 +43,7 @@ Modifier var touteSmart, par const touteSmart. Vérifier que l'étape 3 est comm
 }
 Nous ne pouvons pas le modifier dans la console !
 // E - 5 : FIN ✊ 
-
-REPRENDRE A 00:53:00
 */ 
-
-
-
-
 /*
     Objectif  :  
        énoncé    : Découverte du Hoisting.

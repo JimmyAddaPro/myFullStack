@@ -1,0 +1,22 @@
+.number-list{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: rgb(45, 27, 163);
+    color: white;
+}
+.number-list:hover{
+    background-color:white;
+    color:  rgb(41, 37, 37);
+}
+
+/* Exemple 5 :  */
+.btn-1, .btn-2{
+    color: white;
+    font-size: 30px;
+    padding: 20px 100px;    
+    border: 3px solid gray;
+}
+.btn-1, .btn-2{background-color: blue;}
+.btn-1:hover{background-color: lime;}
+.btn-2:hover{background-color: red;}
